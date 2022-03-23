@@ -54,7 +54,7 @@ jobs:
        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
-      run: terraform plan  -out "tf_pan" -input=false
+      run: terraform plan  -out "tf_plan" -input=false
 
     - name: Upload Terraform Plan
       uses: actions/upload-artifact@v2
