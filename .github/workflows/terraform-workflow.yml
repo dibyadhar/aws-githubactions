@@ -20,24 +20,19 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Install Terraform
-      env: 
-        TERRAFORM_VERSION: "1.1.7"
-      run: |
-        tf_version=$TERRAFORM_VERSION
-        wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
-        unzip terraform_"$tf_version"_linux_amd64.zip
-        sudo mv terraform /usr/local/bin/
+    # - name: Install Terraform
+    #   env: 
+    #   run:
 
     - name: Verify Terraform Version
       run: terraform --version
 
-    - name: Terraform Init
-      env: 
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    # - name: Terraform Init
+    #   env: 
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
-      run: terraform init -input=false
+    #   run: terraform init -input=false
     
     - name: List Files in Working Directory
       run: ls -lR
