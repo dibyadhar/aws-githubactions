@@ -24,9 +24,11 @@ jobs:
 
    # Install the preferred version of Terraform CLI 
     - name: Setup Terraform
+      env:
+        TERRAFORM_VERSION: "1.1.7"
       uses: hashicorp/setup-terraform@v1
       with:
-        terraform_version: 1.1.7
+        terraform_version: $TERRAFORM_VERSION
 
     - name: Verify Terraform Version
       run: terraform --version
@@ -34,3 +36,15 @@ jobs:
     - name: List Files in Working Directory
       run: ls -lR
     
+    - name: Terraform Init
+      working-directory: ./terrafrom
+      env:
+       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
+      run: terraform init -input=false
+
+    - name: Terraform Validation
+      working-directory: ./terrafrom
+      
+      run: terraform validate
