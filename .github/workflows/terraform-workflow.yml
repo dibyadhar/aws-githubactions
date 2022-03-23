@@ -43,8 +43,3 @@ jobs:
        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
       run: terraform init -input=false
-
-    - name: Terraform Validation
-      working-directory: ./terrafrom
-      
-      run: terraform validate
