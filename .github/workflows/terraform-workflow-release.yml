@@ -1,8 +1,8 @@
 name: Deploy Infrastructure Via Semantic Release
+
 on: 
-  push:
-    branches:
-      - master
+  push
+
 permissions:
     contents: read
 
