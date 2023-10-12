@@ -1,6 +1,7 @@
 name: Deploy Demo of Infrastructure Via Semantic Release
 
-# on: 
+on: 
+  workflow_dispatch
 #   push:
 #     branches:
 #       - main

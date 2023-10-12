@@ -1,29 +1,27 @@
 name: build
-
 on: 
   push:
     branches:
-      -  main
+      - main
 
-      jobs:
-        tasks:
-          runs-on: ubuntu-latest
-          
-          steps:
-          - name: Checkout code
-            uses: actions/checkout@v2
+jobs:
+  build-and-test:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
       
-          - name: Test Task
-            run: |
-              echo "Starting test task..."
-              # Here you might typically run some test commands. e.g.,
-              # npm install
-              # npm test
-              echo "Test task completed!"
+     - name: Test Task
+       run: |
+         echo "Starting test task..."
+         # Here you might typically run some test commands. e.g.,
+         # npm install
+         # npm test
+         echo "Test task completed!"
               
-          - name: Build Task
-            run: |
-              echo "Starting build task..."
-              # Here you might typically run some build commands. e.g.,
-              # npm run build
-              echo "Build task completed!"
+     - name: Build Task
+       run: |
+         echo "Starting build task..."
+         # Here you might typically run some build commands. e.g.,
+         # npm run build
+         echo "Build task completed!"
